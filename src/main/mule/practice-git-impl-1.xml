@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="7d4ff812-ad8f-46b8-8a3e-e98dce3106d2" >
+		<http:listener-connection host="localhost" port="8081" />
+	</http:listener-config>
+	<flow name="practies-repositoryFlow" doc:id="ca8b3aa6-1385-4fca-9cc0-bacf3e9ca8e2" >
+		<http:listener doc:name="Listener" doc:id="57b31d44-c2de-4d53-87bd-2c3da742cf10" config-ref="HTTP_Listener_config" path="/gitpractice"/>
+		<logger level="INFO" doc:name="Logger" doc:id="06f552e7-c8ea-491d-a35a-d7e4f0c8d18e" message="flow started"/>
+		<ee:transform doc:name="Transform Message" doc:id="0bf0758f-89dd-46e1-acfd-d3829ae58a95" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/json
+---
+{"message":"git practice"
+	
+}]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+		<logger level="INFO" doc:name="Logger" doc:id="874f3240-138a-4e1f-801c-6c64053bd7f5" message="ended"/>
+	</flow>
+</mule>
