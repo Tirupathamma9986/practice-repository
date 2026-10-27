@@ -16,7 +16,8 @@ http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/
 				<ee:set-payload ><![CDATA[%dw 2.0
 output application/json
 ---
-{"message":"git practice"
+{
+"message":"Welcome to GitHub"
 	
 }]]></ee:set-payload>
 			</ee:message>
