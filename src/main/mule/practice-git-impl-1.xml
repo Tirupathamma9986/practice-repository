@@ -10,14 +10,14 @@ http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/
 	</http:listener-config>
 	<flow name="practies-repositoryFlow" doc:id="ca8b3aa6-1385-4fca-9cc0-bacf3e9ca8e2" >
 		<http:listener doc:name="Listener" doc:id="57b31d44-c2de-4d53-87bd-2c3da742cf10" config-ref="HTTP_Listener_config" path="/gitpractice"/>
-		<logger level="INFO" doc:name="Logger" doc:id="06f552e7-c8ea-491d-a35a-d7e4f0c8d18e" message="flow started"/>
+		<logger level="INFO" doc:name="Logger" doc:id="06f552e7-c8ea-491d-a35a-d7e4f0c8d18e" message="flow starts"/>
 		<ee:transform doc:name="Transform Message" doc:id="0bf0758f-89dd-46e1-acfd-d3829ae58a95" >
 			<ee:message >
 				<ee:set-payload ><![CDATA[%dw 2.0
 output application/json
 ---
 {
-"message":"Welcome to GitHub"
+"message":"Github code commits"
 	
 }]]></ee:set-payload>
 			</ee:message>
